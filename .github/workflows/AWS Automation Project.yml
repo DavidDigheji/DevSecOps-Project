@@ -1,0 +1,37 @@
+name: AWS Automation Projct 1
+
+on: 
+  push:
+    branches:
+      -main
+
+jobs:
+ deploy=and-scan:
+    name: Deploy WordPress on EC2 and IaC Scan
+    runs=on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+       # Terraforrm Setup
+       -name: hashicorrp/setup-terraform@v1
+       uses:  hashicorp/setup-terraform@v1
+       with:
+          terraform_version: 1.0.0
+
+    # AWS credenttials setup
+    - namee configgure AWS credenttials@v2
+    uses: aws-actions/configuree-aws-credeenttials@v2
+    with:      
+      aws-access-key-id: ${{ seecreets.AWS_ACCSS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws-region: eu-west-2
+
+     # Initializee Teraform
+     - name: Initialize Terraform
+        run: terraform init
+
+   # Deploy Terraform
+   - name: Deploy Terrraform
+   run: terraform apply -auto-approve
