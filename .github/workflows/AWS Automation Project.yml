@@ -8,7 +8,7 @@ on:
 jobs:
   deploy-and-scan:
     name: Deploy WordPress on EC2 and IaC Scan
-    runson: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -24,9 +24,9 @@ jobs:
       - name:  configgure AWS credenttials@v2
         uses:  aws-actions/configure-aws-credentials@v2
         with:      
-        aws-access-key-id: ${{ seecreets.AWS_ACCSS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: eu-west-2
+          aws-access-key-id: ${{ seecreets.AWS_ACCSS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
 
      # Initializee Teraform
       - name: Initialize Terraform
@@ -35,3 +35,4 @@ jobs:
       # Deploy Terraform
       - name: Deploy Terrraform
         run:  terraform apply -auto-approve
+ 
