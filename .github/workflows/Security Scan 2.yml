@@ -1,5 +1,6 @@
 name: IaC Security Scan Project 1
 
+
 on:
   push:
     branches:
