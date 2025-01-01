@@ -1,5 +1,5 @@
-# DevSecOps-Project Overview
-## Introduction
+# DevSecOps-Project Overview.
+## Introduction.
 This security document outlines a DevSecOps project implementation incorporating Static Application Security Testing (SAST), Software Composition Analysis (SCA), and Infrastructure as Code (IaC) scanning best practices on applications running within AWS infrastrcuture, utilising GitHub Actions with workflows
 ## Project Goal
 - Implement security measures throughout the software development lifecycle, creating a Secure Software Development Life Cycle (SSDLC).
